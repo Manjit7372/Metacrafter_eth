@@ -1,8 +1,8 @@
-Project Title : 
+# Project Title
 
-Create a token.
+Create a token for learning blockchain.
 
-Description : 
+## Description
 
 we will create this project to fulfill the following requirements:
 Your contract will have public variables that store the details about your coin (Token Name, Token Abbrv., Total Supply)
@@ -11,11 +11,15 @@ You will have a mint function that takes two parameters: an address and a value.
 Your contract will have a burn function, which works the opposite of the mint function, as it will destroy tokens. It will take an address and value just like the mint functions. It will then deduct the value from the total supply and from the balance of the address.
 Lastly, your burn function should have conditionals to make sure the balance of the account is greater than or equal to the amount that is supposed to be burned.
 
-Getting Started
-Installing :
+
+## Getting Started
+
+### Installing
 
 We used Remix IDE to execute this project.
 It's an online IDE.
+
+### Executing program
 
 Step-by-step bullets: 
 
