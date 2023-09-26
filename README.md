@@ -1,50 +1,28 @@
-# MyToken
+# REMIX DEFAULT WORKSPACE
 
-This is a simple ERC-20 token contract implemented in Solidity. The contract allows for the creation and destruction of tokens, as well as storing information about the token.
+## Remix default workspace is present when:
+i. Remix loads for the very first time 
+ii. A new workspace is created with 'Default' template
+iii. There are no files existing in the File Explorer
 
-## Requirements
+## This workspace contains 3 directories:
 
-1. The contract has public variables that store the details about the coin:
-   - `tokenName`: A string representing the name of the token.
-   - `abbrv`: A string representing the abbreviation of the token.
-   - `totalSupply`: An unsigned integer representing the total supply of the token.
+1. 'contracts': Holds three contracts with increasing levels of complexity.
+2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
+3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
 
-2. The contract has a mapping of addresses to balances:
-   - `balances`: A mapping that associates addresses with their corresponding token balances.
+## SCRIPTS
 
-3. The contract has a `mint` function that increases the total supply and the balance of the "sender" address by a given value:
-   - Parameters:
-     - `_address`: The address to which the tokens will be minted.
-     - `_value`: The amount of tokens to be minted.
-   - Actions:
-     - Increase the `totalSupply` by `_value`.
-     - Increase the balance of the `_address` by `_value`.
+The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
 
-4. The contract has a `burn` function that decreases the total supply and the balance of the "sender" address by a given value:
-   - Parameters:
-     - `_address`: The address from which the tokens will be burned.
-     - `_value`: The amount of tokens to be burned.
-   - Actions:
-     - Check if the balance of the `_address` is greater than or equal to `_value`.
-     - If true, decrease the `totalSupply` by `_value`.
-     - Decrease the balance of the `_address` by `_value`.
+For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
+in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
 
-## Usage
+## In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
 
-1. Deploy the `MyToken` contract to a supported Ethereum network.
+To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
+Output from script will appear in remix terminal.
 
-2. Once deployed, you can interact with the contract by calling the following functions:
-
-   - `mint`: Creates new tokens and assigns them to a specified address.
-     - Parameters:
-       - `_address`: The address to which the tokens will be minted.
-       - `_value`: The amount of tokens to be minted.
-
-   - `burn`: Destroys existing tokens by reducing the total supply and the balance of a specified address.
-     - Parameters:
-       - `_address`: The address from which the tokens will be burned.
-       - `_value`: The amount of tokens to be burned.
-
-## License
-
-This contract is licensed under the MIT License. SPDX-License-Identifier: MIT.
+Please note, require/import is supported in a limited manner for Remix supported modules.
+For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
+For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
